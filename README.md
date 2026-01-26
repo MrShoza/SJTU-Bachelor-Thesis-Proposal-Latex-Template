@@ -86,7 +86,7 @@
       <td align="center"><code>0.1.0</code></td>
       <td align="center">
         <a href="https://github.com/zh1-z/SJTU-Bachelor-Thesis-Midterm-Typst-Template"><img src="https://img.shields.io/badge/GitHub-Repo-181717?logo=github" alt="GitHub"></a><br/>
-        <a href="https://typst.app/universe/package/std-sjtu-bachelor-midterm-report"><img src="https://img.shields.io/badge/Typst-Universe-239DAD?logo=typst&logoColor=white" alt="Typst"></a>
+        <a href="https://typst.app/universe/package/std-sjtu-bachelor-thesis-midterm"><img src="https://img.shields.io/badge/Typst-Universe-239DAD?logo=typst&logoColor=white" alt="Typst"></a>
       </td>
       <td align="center">
         <a href="https://github.com/zh1-z/SJTU-Bachelor-Thesis-Midterm-Latex-Template"><img src="https://img.shields.io/badge/GitHub-Repo-47A141?logo=github" alt="GitHub"></a>
