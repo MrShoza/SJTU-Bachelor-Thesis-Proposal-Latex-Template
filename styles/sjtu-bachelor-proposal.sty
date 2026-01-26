@@ -1,0 +1,320 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sjtu-bachelor-proposal}[2026/01/24 SJTU Bachelor Thesis Proposal Template]
+
+\RequirePackage{geometry}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{enumitem}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{array}
+\RequirePackage[style=gb7714-2015]{biblatex}
+\RequirePackage{etoolbox}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{eso-pic}
+\RequirePackage{tabularx}
+\RequirePackage{colortbl}
+\RequirePackage{xcolor}
+\addbibresource{ref.bib}
+
+\geometry{
+    top    = 2.54cm,
+    bottom = 2.54cm,
+    left   = 3.18cm,
+    right  = 3cm,
+}
+
+\setmainfont{texgyretermes}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+]
+
+\ctexset{
+    section = {
+        format = \heiti\zihao{-4}\hspace{-1em},
+        name = {},
+        number = {},
+        beforeskip = 0em,
+        afterskip = 0em,
+        indent = 0em,
+    },
+    subsection = {
+        format = \songti\bfseries\zihao{-4},
+        name = {},
+        number = \thesubsection,
+        beforeskip = 0em,
+        afterskip = 0em,
+        indent = 0em,
+    },
+    subsubsection = {
+        format = \songti\bfseries\zihao{-4},
+        name = {},
+        number = \thesubsubsection,
+        beforeskip = 0em,
+        afterskip = 0em,
+        indent = 0em,
+    },
+    paragraph = {
+        format = \songti\bfseries\zihao{-4},
+        name = {},
+        number = \theparagraph,
+        beforeskip = 0em,
+        afterskip = 0em,
+        aftertitle = \hspace{1em},
+        indent = 2em,
+    },
+    subparagraph = {
+        format = \songti\bfseries\zihao{-4},
+        name = {},
+        number = \thesubparagraph,
+        beforeskip = 0em,
+        afterskip = 0em,
+        aftertitle = \hspace{1em},
+        indent = 2em,
+    },
+}
+\pretocmd{\section}{
+    \ifnum\value{section}>0\clearpage\fi
+}{}{}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsection}.\arabic{subsubsection}}
+
+\defbibenvironment{bibliography}
+  {\list{\printtext[labelnumberwidth]{\printfield{labelprefix}\printfield{labelnumber}}}
+     {\setlength{\labelwidth}{\labelnumberwidth}
+      \setlength{\leftmargin}{\labelwidth}
+      \addtolength{\leftmargin}{\labelsep}
+      \addtolength{\leftmargin}{0em}
+      \setlength{\itemsep}{\bibitemsep}
+      \setlength{\parsep}{\bibparsep}}}
+  {\endlist}
+  {\item}
+
+\setlist{nosep}
+
+\newcommand{\@covertitle}{}
+\newcommand{\@name}{}
+\newcommand{\@studentid}{}
+\newcommand{\@major}{}
+\newcommand{\@supervisor}{}
+\newcommand{\@school}{}
+\newcommand{\@thesistitle}{}
+\newcommand{\@subjectsource}{}
+\newcommand{\@subjectnature}{}
+\newcommand{\@subjectid}{}
+
+\newcommand{\covertitle}[1]{\renewcommand{\@covertitle}{#1}}
+\newcommand{\name}[1]{\renewcommand{\@name}{#1}}
+\newcommand{\studentid}[1]{\renewcommand{\@studentid}{#1}}
+\newcommand{\major}[1]{\renewcommand{\@major}{#1}}
+\newcommand{\supervisor}[1]{\renewcommand{\@supervisor}{#1}}
+\newcommand{\school}[1]{\renewcommand{\@school}{#1}}
+\newcommand{\thesistitle}[1]{\renewcommand{\@thesistitle}{#1}}
+\newcommand{\subjectsource}[1]{\renewcommand{\@subjectsource}{#1}}
+\newcommand{\subjectnature}[1]{\renewcommand{\@subjectnature}{#1}}
+\newcommand{\subjectid}[1]{\renewcommand{\@subjectid}{#1}}
+
+\newcommand{\makecover}{
+    \pagestyle{empty}
+    \begin{center}
+        \includegraphics[width=14.8cm]{./styles/assets/sjtu-title.png}
+        \vspace{-0.8cm}
+        \par
+        {\zihao{-2} \scalebox{1.1}[1]{SHANGHAI JIAO TONG UNIVERSITY}}
+        \vspace{1.0cm}
+        \par
+        {\songti\bfseries\zihao{2} 本科生毕业设计（论文）开题报告}
+        \vspace{1.0cm}
+        \par
+        \includegraphics[width=5.77cm]{./styles/assets/sjtu-logo.png}
+        \vspace{0.5cm}
+    \end{center}
+    \begin{center}
+        \zihao{-2}
+        \renewcommand{\arraystretch}{1.0}
+        \begin{tabular}{>{\kaishu}r >{\centering\kaishu}m{10cm}}
+            {论文题目：} & \@covertitle \tabularnewline\cline{2-2}
+        \end{tabular}
+    \end{center}
+    \vspace{0.5cm}
+    \begin{center}
+        \zihao{3}
+        \renewcommand{\arraystretch}{1.0}
+        \begin{tabular}{>{\kaishu}r >{\centering\kaishu}m{6.35cm}}
+            {学生姓名：} & \@name \tabularnewline \cline{2-2}
+            {学生学号：} & \@studentid \tabularnewline \cline{2-2}
+            {专\quad\quad 业：} & \@major \tabularnewline \cline{2-2}
+            {指导教师：} & \@supervisor \tabularnewline \cline{2-2}
+            {学院(系)：} & \@school \tabularnewline \cline{2-2}
+        \end{tabular}
+    \end{center}
+    \vspace{1cm}
+    \begin{center}
+        {\kaishu\zihao{3} 教务处制表}
+    \end{center}
+    \clearpage
+}
+
+\newcommand{\makeinstruction}{
+    \vspace*{36pt}
+    \begin{center}
+        {\heiti\zihao{-2} 填\hspace{0.06cm} 表\hspace{0.06cm} 说\hspace{0.06cm} 明}
+        \vspace{0.5cm}
+    \end{center}
+    \songti\zihao{4}
+    \begin{enumerate}[itemsep=0.0cm, topsep=0pt, parsep=0pt, leftmargin=0.74cm, labelsep=0.3cm, font=\songti]
+        \addtolength{\baselineskip}{0.2cm}
+        \item 根据《上海交通大学关于本科生毕业设计(论文)工作的若干规定》要求，每位学生必须认真撰写《毕业设计（论文）开题报告》。
+        \item 每位学生应在指导教师的指导下认真、实事求是地填写各项内容。文字表达要明确、严谨，语句通顺，条理清晰。外来语要同时用原文和中文表达，第一次出现的缩写词，须注出全称。
+        \item 开题前，须进行文献查阅，要求与论文研究有关的主要参考文献阅读数量不少于10篇，其中外文资料应占一定比例。参考文献的书写请参照《上海交通大学本科生毕业设计（论文）撰写规范》。
+        \item 毕业设计（论文）开题报告总字数应满足本院（系）要求。
+        \item 请用宋体小四号字体填写，并用A4纸打印，于左侧装订成册。
+        \item 该表填写完毕后，须请指导教师审核，并签署意见。
+        \item 《上海交通大学本科生毕业设计（论文）开题报告》将作为答辩资格审查的主要材料之一。
+        \item 本表格不够可自行扩页。
+    \end{enumerate}
+    \setlength{\parskip}{0pt}
+    \setlist[itemize]{left=2em}
+    \setlist[enumerate]{left=2em}
+    \clearpage
+}
+
+\newcommand{\initbodyformat}{
+    \newgeometry{
+        top    = 3.62cm,
+        bottom = 2.84cm,
+        left   = 3.48cm,
+        right  = 3.3cm,
+        headheight = 1.5cm,
+        headsep    = 0.8cm
+    }
+    \songti
+    \zihao{-4}
+    \setlength{\parskip}{0.5em}
+    \linespread{1.5}
+    \setlength{\parindent}{2em}
+    \pagestyle{sjtu_style}
+    \startpageborder
+}
+
+\fancypagestyle{sjtu_style}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0.5pt}
+    \fancyhfoffset[L]{0.3cm}
+    \fancyhfoffset[R]{0.3cm}
+    \fancyhead[L]{%
+        \raisebox{-0.1cm}{\includegraphics[width=4.8cm]{./styles/assets/sjtu-logo-title.png}}
+    }
+    \fancyhead[R]{%
+        \zihao{-5}\songti 毕业设计（论文）开题报告
+    }
+}
+
+\newcommand{\drawpageborder}{%
+  \AddToShipoutPictureBG{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \draw[line width=0.5pt] 
+        (3.18cm, 2.54cm)
+        rectangle 
+        (18cm, 26.38cm);
+    \end{tikzpicture}%
+  }
+}
+\newcommand{\startpageborder}{\drawpageborder}
+\newcommand{\stoppageborder}{\ClearShipoutPictureBG}
+
+\newcommand{\makeprojectinfo}{
+    \ifdefempty{\@thesistitle}{
+        \let\@displaytitle\@covertitle
+    }{
+        \let\@displaytitle\@thesistitle
+    }
+    \vspace*{-1.2cm}
+    \setlength{\parindent}{0em}
+    \songti\zihao{-4}        
+    \hspace*{-1.585cm}
+    \begin{tabular}{>{\centering}m{0.8cm}>{\centering}m{1.8cm}| >{\centering}m{2.268cm}|
+                    >{\centering}m{1.8cm}| >{\centering}m{2.268cm}|
+                    >{\centering}m{1.8cm}| >{\centering}m{2.268cm}>{\centering}m{0.8cm}}
+        \rowcolor{white}
+        \multicolumn{8}{>{\centering}m{16.43cm}}
+        {\rule[-0.6cm]{0pt}{1.5cm}\bfseries\kaishu\zihao{-3}毕业设计 (论文) 开题报告} \tabularnewline \cline{2-7}
+        & 论文题目 & \multicolumn{5}{>{\centering}m{12.16cm}}{\@displaytitle} \tabularnewline \cline{2-7}
+        & 课题来源 & \@subjectsource & 课题性质 & \@subjectnature & 项目编号 & \@subjectid \tabularnewline \cline{2-7}
+    \end{tabular}
+    \vspace{0.0cm}
+    \setlength{\parindent}{2em}
+}
+
+\newcommand{\makeopinionpage}[3]{
+    \clearpage
+    \songti\zihao{-4}
+    \setlength{\parskip}{0pt}
+    \setlength{\parindent}{0em}
+    \begin{minipage}[t][14cm][s]{\textwidth}
+        \setlength{\parskip}{0.5em}
+        \noindent 指导教师意见（课题难度是否适中、工作量是否饱满、进度安排是否合理、工作条件是否具备、是否同意开题等）：
+        \setlength{\parindent}{2em}
+        
+        #1  % 这是指导教师意见的内容
+        
+        \vfill
+        \par
+        \begin{flushright}
+            指导教师签名：\underline{\hspace{4cm}} \\[0.5cm]
+            年\quad\quad 月\quad\quad 日
+        \end{flushright}
+        \vspace*{0.2cm}
+    \end{minipage}
+    \par
+    \begin{tikzpicture}[remember picture, overlay]
+        \draw[line width=0.5pt] 
+            ([shift={(3.18cm, 12.076cm)}]current page.south west) -- 
+            ([shift={(18.00cm, 12.076cm)}]current page.south west);
+    \end{tikzpicture}
+    \par
+    \begin{minipage}[b][8.8cm][s]{\textwidth}
+        \vspace*{0.2cm}
+        \setlength{\parskip}{0.5em}
+        \noindent 学院（系）意见：
+        \setlength{\parindent}{2em}
+        
+        #2 % 这是学院（系）意见的内容
+
+        \vfill
+        \par
+        \def\tempresult{#3} 
+        \def\agreeopt{agree}
+        \def\disagreeopt{disagree}
+        \hspace{2em}审\hspace{0.5em}查\hspace{0.5em}结\hspace{0.5em}果：\hspace{0.5cm}
+        \edef\res{#3}%
+        \ifx\res\agreeopt
+            $\text{\makebox[0pt][l]{$\checkmark$}}\square$ 同意
+        \else
+            $\square$ 同意
+        \fi
+        \hspace{3em} 
+        \ifx\res\disagreeopt
+            $\text{\makebox[0pt][l]{$\checkmark$}}\square$ 不同意
+        \else
+            $\square$ 不同意
+        \fi
+        \par
+        \begin{flushright}
+            学院（系）负责人签名：\underline{\hspace{4cm}} \\[0.5cm]
+            年\quad\quad 月\quad\quad 日
+        \end{flushright}
+    \end{minipage}
+    \par
+    \setlength{\parskip}{0.5em}
+    \setlength{\parindent}{2em}
+    \clearpage
+}
+
+\endinput
